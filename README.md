@@ -1,7 +1,7 @@
-Spring Boot E-Commerce Application
+# Spring Boot E-Commerce Application
 This project is a Spring Boot-based e-commerce application that allows administrators to manage products securely through a web interface. The application follows the Model-View-Controller (MVC) architecture and integrates key features such as role-based access control, Thymeleaf for form handling, and Spring Boot Actuator for application monitoring.
 
-Key Features
+# Key Features
 1. MVC Architecture
    The application is structured using the MVC design pattern.
    Model: Represents the application's data (e.g., Product entities).
