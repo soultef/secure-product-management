@@ -14,7 +14,7 @@ import jakarta.persistence.Id;
  * @since 2025-03-20
  */
 @Entity
-public class User {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
