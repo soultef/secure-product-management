@@ -4,9 +4,6 @@ This project is a Spring Boot-based e-commerce application that allows administr
 # Key Features
 1. MVC Architecture
    The application is structured using the MVC design pattern.
-   Model: Represents the application's data (e.g., Product entities).
-   View: HTML views are rendered using Thymeleaf templates.
-   Controller: Handles HTTP requests and delegates business logic to services.
 2. Product Management
    Secure functionality to create, update, and display products.
    Each product has attributes such as name, price, description, and category.
@@ -21,67 +18,36 @@ This project is a Spring Boot-based e-commerce application that allows administr
 5. Spring Boot Actuator
    Actuator endpoints are enabled to monitor the health and performance of the application.
    Provides endpoints such as /actuator/health and /actuator/metrics to monitor application metrics.
-   Project Setup
-   Prerequisites
+ # Project Setup
+   ### Prerequisites
    Java 11 or newer
-   Maven or Gradle (depending on your setup)
+   Maven
    An IDE (e.g., IntelliJ IDEA, Eclipse)
-   Database (e.g., H2 for development, MySQL for production)
-   Steps to Run the Application
-   Clone the repository:
+   Database MySQL
+  ### Steps to Run the Application
+   #### 1.Clone the repository:
+      bash:
+      git clone https://github.com/soultef/spring-boot-ecommerce.git
+      cd spring-boot-ecommerce
+      
+   #### 2.Install dependencies:
+      mvn clean install
 
-bash
-Copy
-Edit
-git clone https://github.com/your-username/spring-boot-ecommerce.git
-cd spring-boot-ecommerce
-Install dependencies:
+   #### 3.Configure application properties:
+      # Example database configuration
+      spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce
+      spring.datasource.username=root
+      spring.datasource.password=root
 
-If you're using Maven:
+   #### 4.Run the application:
+      mvn spring-boot:run
 
-bash
-Copy
-Edit
-mvn clean install
-If you're using Gradle:
-
-bash
-Copy
-Edit
-./gradlew build
-Configure application properties:
-
-Update application.properties for database connection and other configurations.
-
-properties
-Copy
-Edit
-# Example database configuration
-spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce
-spring.datasource.username=root
-spring.datasource.password=root
-Run the application:
 
 You can run the application using the following command:
 
-bash
-Copy
-Edit
-mvn spring-boot:run
-Or if you're using Gradle:
-
-bash
-Copy
-Edit
-./gradlew bootRun
-Access the application:
-
 Once the application is running, open your browser and go to:
-
-plaintext
-Copy
-Edit
 http://localhost:8080
+<!-- These username and password is for development perpose only-->
 Default User Roles
 ADMIN:
 Username: admin
