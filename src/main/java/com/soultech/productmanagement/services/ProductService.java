@@ -9,13 +9,34 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Service class for managing product operations.
- * This class provides CRUD operations for Product entities,
- * interacting with the ProductRepository.
+ * Service class for managing products in the system.
+ * <p>
+ * This class provides business logic for handling product-related operations,
+ * including retrieving, adding, updating, and deleting products. It acts as
+ * an intermediary between the controller and the repository layer.
+ * </p>
+ *
+ * <p>
+ * Features:
+ * - Retrieve all products from the database.
+ * - Add a new product.
+ * - Fetch a product by its ID.
+ * - Update an existing product.
+ * - Delete a product by its ID.
+ * </p>
+ *
+ * <p>
+ * This class follows best practices by using constructor-based dependency injection
+ * and ensuring proper interaction with the database layer via {@code ProductRepository}.
+ * </p>
+ *
+ * @author Solomon Demisse
+ * @version 1.0
+ * @since 2025-03-24
  */
 @Service
 public class ProductService {
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
     public ProductService(ProductRepository productRepository) {
