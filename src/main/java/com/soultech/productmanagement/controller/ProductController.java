@@ -36,7 +36,8 @@ public class ProductController {
      *
      * @param productService The service layer responsible for product operations.
      */
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService)
+    {
         this.productService = productService;
     }
 
@@ -53,15 +54,16 @@ public class ProductController {
     }
 
     /**
-     * Displays the product addition form.
+     * Displays form to add a product.
      *
      * @param model The model to store a new product object.
      * @return The view name for the add product form.
      */
-    @GetMapping("/add")
+    @GetMapping("/add-a-product")
     public String showAddProductPage(Model model) {
         model.addAttribute("product", new Product());
-        return "add-product";
+
+        return "add-a-product";
     }
 
     /**
