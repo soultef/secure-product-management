@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 /**
- * Represents a user in the e-commerce application.
+ * Represents a user in the product management application.
  * A user has an ID, username, password, and role.
  * This class serves as a model for authenticate user.
  *
