@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 /**
  * Represents the profile of a user in the product management application.
- * This entity stores user-related information such as first name, last name, email, and role.
+ * This entity stores user-related information such as first name, last name,and email.
  * Each profile is associated with a specific user entity via a one-to-one relationship.
  * @author  Solomon Demisse
  * @version 001
@@ -33,11 +33,7 @@ public class User_Profile {
      */
     private String last_name;
 
-    /**
-     * Email address of the user.
-     * This field is used to store the user's email address, which must be unique.
-     */
-    private String email;
+
 
     /**
      * Role of the user within the application.
@@ -118,21 +114,6 @@ public class User_Profile {
         this.email = email;
     }
 
-    /**
-     * Gets the role of the user.
-     * @return the role of the user.
-     */
-    public String getRole() {
-        return role;
-    }
-
-    /**
-     * Sets the role of the user.
-     * @param role the role to set.
-     */
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     /**
      * Gets the associated user for this profile.
@@ -142,13 +123,7 @@ public class User_Profile {
         return user;
     }
 
-    /**
-     * Sets the associated user for this profile.
-     * @param user the user to associate with the profile.
-     */
-    public void setUser(Users user) {
-        this.user = user;
-    }
+
 }
 
 
