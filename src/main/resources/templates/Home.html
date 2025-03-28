@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
   <link th:href="@{/CSS/home.css}" rel="stylesheet">
+  <link th:href="@{/CSS/login-form.css}" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
   <title>Home page</title>
@@ -10,5 +11,8 @@
 <body>
   <!--Header fragment -->
   <header th:replace="~{fragments :: header-fragment}"></header>
+  <section>
+    <div th:replace="~{fragments :: login-form-fragment}"></div>
+  </section>
 </body>
 </html>
