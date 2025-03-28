@@ -12,8 +12,8 @@
 
         <div class="nav-a-tags">
             <ul>
-                <li><a href="#">Add Item</a></li>
-                <li><a href="#">List of Items</a></li>
+                <li><a th:href="@{/products/add-a-product}">Add Item</a></li>
+                <li><a th:href="@{/products}">List of Items</a></li>
                 <li><a href="#">Register</a></li>
             </ul>
 
@@ -26,3 +26,52 @@
 <footer th:fragment="footer-fragment">
 
 </footer>
+
+<!--Login form -->
+<div th:fragment="login-form-fragment" class="login-form-container">
+    <h1>Login</h1>
+
+    <form action="/login" method="POST" class="login-form">
+        <label for="user-login-name">Username</label>
+        <input type="email" id="user-login-name" name="username" placeholder="Enter your username" required>
+
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+
+        <button type="submit" class="login-btn">Login</button>
+
+        <div class="register-link">
+            <p>Don't have an account? <a href="/register">Register here</a></p>
+        </div>
+    </form>
+</div>
+
+
+
+<!-- Registration form -->
+<div class="registration-form" th:fragment="registration-fragment">
+    <h1>Registration Form</h1>
+    <form>
+        <label for="first-name">First Name</label>
+        <input id="first-name" placeholder="First name" type="text">
+
+        <label for="last-name">Last Name</label>
+        <input id="last-name"  placeholder="Last name" type="text">
+
+        <label for="username">Username</label>
+        <input type="email" placeholder="Enter your email" id="username">
+
+        <label for="password">Pass word</label>
+        <input type="password" placeholder="Enter a password " id="password">
+        <input type="password" placeholder="Renter password" id="confirm-password">
+
+        <div>
+            <label for="role">Role</label>
+            <select id="role" th:field="*{role}">
+                <option value="USER">User</option>
+                <option value="ADMIN">Admin</option>
+            </select>
+        </div>
+        <button class="registration-submit-bun" type="button">Submit</button>
+    </form>
+</div>
