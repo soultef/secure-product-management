@@ -33,6 +33,12 @@ public class User_Profile {
      */
     private String last_name;
 
+    /**
+     * email of the user.
+     * This field is used to store the user's email address.
+     */
+    private String email;
+
 
 
     /**
