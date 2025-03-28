@@ -2,7 +2,7 @@
 <header th:fragment="header-fragment">
     <nav class="nav-bar">
         <div class="logo">
-            <div class="spm-logo" style="color: red; font-size: 1.2em">s<span id="p-logo">P</span>m</div>
+            <div class="spm-logo" style="color: red; font-size: 1.2em">s<span class="p-logo">P</span>m</div>
             <div class="spm-text">Secure<br>Product Management</div>
         </div>
         <form class="search-bar">
@@ -29,7 +29,11 @@
 
 <!--Login form -->
 <div th:fragment="login-form-fragment" class="login-form-container">
-    <h1>Login</h1>
+
+    <div class="login-spm-logo">s<span class="p-logo">P</span>m</div>
+
+
+    <h1>Wellcome back</h1>
 
     <form action="/login" method="POST" class="login-form">
         <label for="user-login-name">Username</label>
