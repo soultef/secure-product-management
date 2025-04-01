@@ -2,8 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-  <link th:href="@{/CSS/home.css}" rel="stylesheet">
+  <link th:href="@{/CSS/header-fragment.css}" rel="stylesheet">
   <link th:href="@{/CSS/login-form.css}" rel="stylesheet">
+  <link th:href="@{/CSS/footer-fragment.css}" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
   <title>Home page</title>
@@ -11,8 +12,10 @@
 <body>
   <!--Header fragment -->
   <header th:replace="~{fragments :: header-fragment}"></header>
-  <section>
+  <section id="body-fragment-section">
     <div th:replace="~{fragments :: login-form-fragment}"></div>
   </section>
+  <footer th:replace="~{fragments :: footer-fragment}">
+  </footer>
 </body>
 </html>
