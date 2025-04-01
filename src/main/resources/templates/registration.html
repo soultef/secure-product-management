@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/CSS/header-fragment.css}" rel="stylesheet">
+    <link th:href="@{/CSS/registration.css}" rel="stylesheet">
+    <link th:href="@{/CSS/footer-fragment.css}" rel="stylesheet">
+
+
+    <title>Registration</title>
+</head>
+<body>
+<!--Header fragment -->
+<header th:replace="~{fragments :: header-fragment}"></header>
+<section id="body-fragment-section">
+    <div th:replace="~{fragments :: registration-form-fragment}"></div>
+</section>
+<footer class="footer" th:replace="~{fragments :: footer-fragment}">
+
+</footer>
+</body>
+</html>
