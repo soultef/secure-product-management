@@ -1,0 +1,158 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Full Page Centering */
+.registration-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh;*/
+    background: #f4f4f9;
+}
+
+/* Form Box */
+.registration-form {
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin-top: 70px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Form Header */
+.registration-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #005;
+    font-weight: 600;
+}
+
+/* Input Group */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.input-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #005;
+    margin-bottom: 5px;
+}
+
+/* Logo */
+.login-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.p-logo {
+    color: #007bff;
+}
+
+/* Input Fields */
+.input-group input {
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Role Wrapper - Centers the Role Section */
+.role-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* Role Selection - Small and Centered */
+.role-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 2px solid #ddd;
+    width: fit-content;
+}
+
+/* Role Label */
+.role-container label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Role Dropdown */
+.role-container select {
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    width: 120px;
+    text-align: center;
+}
+
+.role-container select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Submit Button */
+.registration-submit-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.registration-submit-btn:hover {
+    background: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .registration-form {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    .role-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+
+
+
