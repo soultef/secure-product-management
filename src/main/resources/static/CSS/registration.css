@@ -1,11 +1,4 @@
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
 /* Full Page Centering */
 .registration-form-container {
     display: flex;
@@ -50,18 +43,6 @@
     font-weight: bold;
     color: #005;
     margin-bottom: 5px;
-}
-
-/* Logo */
-.login-logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.p-logo {
-    color: #007bff;
 }
 
 /* Input Fields */

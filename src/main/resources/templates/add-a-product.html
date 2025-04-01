@@ -2,16 +2,47 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Product</title>
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom Stylesheets -->
+  <link th:href="@{/CSS/header-fragment.css}" rel="stylesheet">
+  <link th:href="@{/CSS/footer-fragment.css}" rel="stylesheet">
+
+  <style>
+    /* Ensures footer stays at the bottom */
+    html, body {
+      height: 100%;
+    }
+    .container {
+      height: 95vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .footer {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      background-color: #f8f9fa;
+      padding: 5px 0;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-<div class="container mt-4">
-  <h2 class="text-center">Add Product</h2>
+
+<!-- Header Fragment -->
+<header th:replace="~{fragments :: header-fragment}"></header>
+
+<div class="container">
+  <h2 class="text-center my-4">Add Product</h2>
 
   <form th:action="@{/products/add}" th:object="${product}" method="post" class="form">
     <div class="mb-3">
-      <label for= "name-input" class="form-label">Name</label>
+      <label for="name-input" class="form-label">Name</label>
       <input type="text" th:field="*{name}" class="form-control" id="name-input" required>
     </div>
 
@@ -21,13 +52,19 @@
     </div>
 
     <div class="mb-3">
-      <label for="textarea-input" class="form-label">Description</label>
-        <textarea th:field="*{description}" class="form-control" rows="3" id="textarea-input"> </textarea>
-
+      <label for="description-input" class="form-label">Description</label>
+      <textarea th:field="*{description}" class="form-control" rows="3" id="description-input"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary">Save Product</button>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Save Product</button>
+    </div>
   </form>
+
 </div>
+
+<!-- Footer Fragment -->
+<footer class="footer" th:replace="~{fragments :: footer-fragment}"></footer>
+
 </body>
 </html>
