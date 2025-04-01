@@ -43,6 +43,19 @@ h1 {
     color: #005;
     margin-bottom: 1.5rem;
 }
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 5px;
+    color: #005;
+    font-size: 16px;
+}
+
 
 /* Input Group */
 .input-group {
@@ -58,7 +71,7 @@ h1 {
 
 .input-group input {
     width: 100%;
-    padding: 10px;
+    padding: 8px 2px 8px 25px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
