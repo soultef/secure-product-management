@@ -14,7 +14,7 @@
             <ul>
                 <li><a th:href="@{/products/add-a-product}">Add Item</a></li>
                 <li><a th:href="@{/products}">List of Items</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a th:href="@{/registration}">Registration</a></li>
             </ul>
 
         </div>
@@ -24,58 +24,99 @@
 
 <!--This is footer fragment -->
 <footer th:fragment="footer-fragment">
-
+    <div class="footer-bottom">
+        <p>© <span th:text="${#dates.year(#dates.createNow())}"></span> Secure Product Management. All rights reserved.</p>
+    </div>
 </footer>
 
 <!--Login form -->
 <div th:fragment="login-form-fragment" class="login-form-container">
-
-    <div class="login-spm-logo">s<span class="p-logo">P</span>m</div>
-
-
-    <h1>Wellcome back</h1>
-
-    <form action="/login" method="POST" class="login-form">
-        <label for="user-login-name">Username</label>
-        <input type="email" id="user-login-name" name="username" placeholder="Enter your username" required>
-
-        <label for="login-password">Password</label>
-        <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
-
-        <button type="submit" class="login-btn">Login</button>
-
-        <div class="register-link">
-            <p>Don't have an account? <a href="/register">Register here</a></p>
+    <div class="login-form-box">
+        <!-- Logo -->
+        <div class="login-logo">
+            <span class="logo-text">s<span class="p-logo">P</span>m</span>
         </div>
-    </form>
+
+        <!-- Welcome Heading -->
+        <h1>Welcome Back</h1>
+
+        <!-- Login Form -->
+        <form action="/login" method="POST" class="login-form">
+            <div class="input-group">
+                <label for="user-login-name">Username</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="email" id="user-login-name" name="username"  required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="login-password">Password</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="login-password" name="password"  required>
+                </div>
+            </div>
+
+            <!-- Login Button -->
+            <div class="btn-container">
+                <button type="submit" class="login-btn">Login</button>
+            </div>
+
+            <!-- Register Link -->
+            <div class="register-link">
+                <p>Don't have an account? <a href="/register">Register here</a></p>
+            </div>
+        </form>
+    </div>
 </div>
 
 
 
 <!-- Registration form -->
-<div class="registration-form" th:fragment="registration-fragment">
-    <h1>Registration Form</h1>
-    <form>
-        <label for="first-name">First Name</label>
-        <input id="first-name" placeholder="First name" type="text">
-
-        <label for="last-name">Last Name</label>
-        <input id="last-name"  placeholder="Last name" type="text">
-
-        <label for="username">Username</label>
-        <input type="email" placeholder="Enter your email" id="username">
-
-        <label for="password">Pass word</label>
-        <input type="password" placeholder="Enter a password " id="password">
-        <input type="password" placeholder="Renter password" id="confirm-password">
-
-        <div>
-            <label for="role">Role</label>
-            <select id="role" th:field="*{role}">
-                <option value="USER">User</option>
-                <option value="ADMIN">Admin</option>
-            </select>
+<div class="registration-form-container" th:fragment="registration-form-fragment">
+    <div class="registration-form">
+        <div class="login-logo">
+            <span class="logo-text">s<span class="p-logo">P</span>m</span>
         </div>
-        <button class="registration-submit-bun" type="button">Submit</button>
-    </form>
+        <h1>Welcome! Let's Get You Started</h1>
+        <form>
+            <div class="input-group">
+                <label for="first-name">First Name</label>
+                <input id="first-name" placeholder="First name" type="text">
+            </div>
+
+            <div class="input-group">
+                <label for="last-name">Last Name</label>
+                <input id="last-name" placeholder="Last name" type="text">
+            </div>
+
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="email" placeholder="Enter your email" id="username">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" placeholder="Enter a password" id="password">
+            </div>
+
+            <div class="input-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" placeholder="Re-enter password" id="confirm-password">
+            </div>
+
+            <div class="role-wrapper">
+                <div class="role-container">
+                    <label for="role">Role</label>
+                    <select id="role">
+                        <option value="USER">User</option>
+                        <option value="ADMIN">Admin</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="registration-submit-btn" type="button">Submit</button>
+        </form>
+    </div>
 </div>
