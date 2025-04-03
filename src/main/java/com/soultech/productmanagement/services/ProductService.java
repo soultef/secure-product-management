@@ -56,7 +56,8 @@ public class ProductService {
      */
     public void addProduct(Product product)
     {
-       productRepository.save(product);
+
+        productRepository.save(product);
     }
 
     /**
@@ -72,13 +73,19 @@ public class ProductService {
 
     /**
      * Updates an existing product.
-     * @param id The ID of the product to update.
-     * @param updatedProduct The updated product data.
+     *
+     * @param id             The ID of the product to update.
+     * @param newProductData The updated product data.
      */
-    public void updateProduct(long id, Product updatedProduct) {
-        if (productRepository.existsById(id)) {
-            productRepository.save(updatedProduct);
-        }
+    public void updateProduct(Long id, Product newProductData) {
+        productRepository.findById(id)
+                .map(existingProduct -> {
+                    existingProduct.setName(newProductData.getName());
+                    existingProduct.setPrice(newProductData.getPrice());
+                    existingProduct.setDescription(newProductData.getDescription());
+                    return productRepository.save(existingProduct); // Ensures UPDATE, not INSERT
+                })
+                .orElseThrow(() -> new RuntimeException("Product not found with ID: " + id));
     }
 
     /**

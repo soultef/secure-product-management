@@ -2,6 +2,8 @@ package com.soultech.productmanagement.controller;
 
 import com.soultech.productmanagement.model.Product;
 import com.soultech.productmanagement.services.ProductService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +25,7 @@ import org.springframework.web.bind.annotation.*;
  *
  * @author Your Name
  * @version 1.0
- * @since 2025-03-24
+ * @since 2025
  */
 @Controller
 @RequestMapping("/products")
@@ -38,6 +40,7 @@ public class ProductController {
      */
     public ProductController(ProductService productService)
     {
+
         this.productService = productService;
     }
 
@@ -62,7 +65,6 @@ public class ProductController {
     @GetMapping("/add-a-product")
     public String showAddProductPage(Model model) {
         model.addAttribute("product", new Product());
-
         return "add-a-product";
     }
 
@@ -72,10 +74,16 @@ public class ProductController {
      * @param product The product to be added.
      * @return A redirect to the product list page.
      */
-    @PostMapping("/add")
-    public String addProduct(Product product) {
-        productService.addProduct(product);
+    @PostMapping("/add/{id}")
+    public String addProduct(@PathVariable Long id, @ModelAttribute Product product) {
+        if(id == 0 ) {
+            productService.addProduct(product);
+        }
+        else {
+            productService.updateProduct(id, product);
+        }
         return "redirect:/products";
+
     }
 
     /**
@@ -85,9 +93,42 @@ public class ProductController {
      * @param product The updated product data.
      * @return A redirect to the product list page.
      */
-    @PutMapping("/{id}/update")
-    public String updateAProduct(@PathVariable long id, Product product) {
-        productService.updateProduct(id, product);
-        return "redirect:/products";
+    @GetMapping("/update/{id}")
+    public ResponseEntity<String> updateProduct(@PathVariable Long id, @RequestBody Product product) {
+        try {
+            productService.updateProduct(id, product);
+            return ResponseEntity.ok("Product updated successfully!");
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
+
+
+    /**
+     * Displays the form for editing an existing product.
+     *
+     * @param id The ID of the product to be edited.
+     * @param model The model to pass the product data to the view.
+     * @return The name of the Thymeleaf template to display the edit form.
+     */
+    @GetMapping("/edit/{id}")
+    public String showUpdateForm(@PathVariable Long id, Model model) {
+        Product product = productService.getProductById(id);
+        model.addAttribute("product", product);
+        return "add-a-product"; // Template for the edit form
+    }
+
+    /**
+     * Handles deleting a product by its ID.
+     *
+     * @param id The ID of the product to be deleted.
+     * @return A redirect to the product list page after deletion.
+     */
+    @PostMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
+        return "redirect:/products"; // Redirects back to the product list page
+    }
+
+
 }
