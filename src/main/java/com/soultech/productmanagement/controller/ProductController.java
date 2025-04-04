@@ -7,6 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 /**
  * Controller for managing product-related operations.
  * <p>
@@ -127,7 +130,20 @@ public class ProductController {
     @PostMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
-        return "redirect:/products"; // Redirects back to the product list page
+        return "redirect:/products";
+    }
+
+    /**
+     * Searches products by its name.
+     * @param name Keyword to be search
+     * @param model Use to pass list of product object to template engine
+     * @return product template
+     */
+    @GetMapping("/search")
+    public String findProducts(@RequestParam String name, Model model) {
+        List<Product> listOfProducts = productService.getProductsByName(name);
+        model.addAttribute("products", listOfProducts);
+        return "product";
     }
 
 
