@@ -5,9 +5,9 @@
             <div class="spm-logo" style="color: red; font-size: 1.2em">s<span class="p-logo">P</span>m</div>
             <div class="spm-text">Secure<br>Product Management</div>
         </div>
-        <form class="search-bar">
-            <input type="search" placeholder="search items...">
-            <button type="button">Search</button>
+        <form th:action="@{/products/search}" method="get" class="search-bar">
+            <input type="search" name="name" placeholder="search items...">
+            <button type="submit">Search</button>
         </form>
 
         <div class="nav-a-tags">
