@@ -96,4 +96,13 @@ public class ProductService {
     {
         productRepository.deleteById(id);
     }
+
+    /**
+     * finds product by name
+     * @param name The product name
+     * @return list of products
+     */
+    public List<Product> getProductsByName(String name) {
+        return productRepository.findByNameContainingIgnoreCase(name);
+    }
 }
