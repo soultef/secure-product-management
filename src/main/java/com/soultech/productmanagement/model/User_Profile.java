@@ -25,13 +25,13 @@ public class User_Profile {
      * First name of the user.
      * This field is used to store the user's first name.
      */
-    private String first_name;
+    private String firstName;
 
     /**
      * Last name of the user.
      * This field is used to store the user's last name.
      */
-    private String last_name;
+    private String lastName;
 
     /**
      * email of the user.
@@ -76,32 +76,32 @@ public class User_Profile {
      * Gets the first name of the user.
      * @return the first name of the user.
      */
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
     /**
      * Sets the first name of the user.
-     * @param first_name the first name to set.
+     * @param firstName the first name to set.
      */
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     /**
      * Gets the last name of the user.
      * @return the last name of the user.
      */
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
     /**
      * Sets the last name of the user.
-     * @param last_name the last name to set.
+     * @param lastName the last name to set.
      */
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastname(String lastName) {
+        this.lastName = lastName;
     }
 
     /**
@@ -127,6 +127,14 @@ public class User_Profile {
      */
     public Users getUser() {
         return user;
+    }
+
+    /**
+     * Set the users ref variable
+     * @param user user ref variable
+     */
+    public void setUser(Users user) {
+        this.user = user;
     }
 
 
