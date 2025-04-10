@@ -1,10 +1,14 @@
 <!--This is header fragment used for navigation-->
 <header th:fragment="header-fragment">
     <nav class="nav-bar">
+
+        <a href="/api/login">
         <div class="logo">
             <div class="spm-logo" style="color: red; font-size: 1.2em">s<span class="p-logo">P</span>m</div>
             <div class="spm-text">Secure<br>Product Management</div>
         </div>
+        </a>
+
         <form th:action="@{/products/search}" method="get" class="search-bar">
             <input type="search" name="name" placeholder="search items...">
             <button type="submit">Search</button>
@@ -14,7 +18,7 @@
             <ul>
                 <li><a th:href="@{/products/add-a-product}">Add Item</a></li>
                 <li><a th:href="@{/products}">List of Items</a></li>
-                <li><a th:href="@{/registration}">Registration</a></li>
+                <li><a th:href="@{/api/registration}">Registration</a></li>
             </ul>
 
         </div>
@@ -41,12 +45,12 @@
         <h1>Welcome Back</h1>
 
         <!-- Login Form -->
-        <form action="/login" method="POST" class="login-form">
+        <form th:action="@{/form-submit}" th:object="${users}" method="post" class="login-form">
             <div class="input-group">
                 <label for="user-login-name">Username</label>
                 <div class="input-wrapper">
                     <i class="fa-solid fa-user"></i>
-                    <input type="email" id="user-login-name" name="username"  required>
+                    <input type="email" th:field="*{username}"  id="user-login-name" name="username"  required>
                 </div>
             </div>
 
@@ -54,7 +58,7 @@
                 <label for="login-password">Password</label>
                 <div class="input-wrapper">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" id="login-password" name="password"  required>
+                    <input type="password" th:field="*{password}" id="login-password" name="password"  required>
                 </div>
             </div>
 
@@ -80,43 +84,46 @@
             <span class="logo-text">s<span class="p-logo">P</span>m</span>
         </div>
         <h1>Welcome! Let's Get You Started</h1>
-        <form>
+
+
+        <form  th:action="@{/api/register}" th:object="${userProfile}" method="post">
             <div class="input-group">
                 <label for="first-name">First Name</label>
-                <input id="first-name" placeholder="First name" type="text">
+                <input id="first-name" th:field="*{firstName}" placeholder="First name" required type="text" />
             </div>
 
             <div class="input-group">
                 <label for="last-name">Last Name</label>
-                <input id="last-name" placeholder="Last name" type="text">
+                <input id="last-name" th:field="*{lastName}" placeholder="Last name" required type="text" />
             </div>
 
             <div class="input-group">
                 <label for="username">Username</label>
-                <input type="email" placeholder="Enter your email" id="username">
+                <input id="username" th:field="*{user.username}" placeholder="Enter your email" required type="email" />
             </div>
 
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" placeholder="Enter a password" id="password">
+                <input id="password"  th:field="*{user.password}" placeholder="Enter a password" required type="password" />
             </div>
 
             <div class="input-group">
                 <label for="confirm-password">Confirm Password</label>
-                <input type="password" placeholder="Re-enter password" id="confirm-password">
+                <input id="confirm-password" required name="confirmPassword" placeholder="Re-enter password" type="password" />
             </div>
 
             <div class="role-wrapper">
                 <div class="role-container">
                     <label for="role">Role</label>
-                    <select id="role">
+                    <select id="role" th:field="*{user.role}" required>
                         <option value="USER">User</option>
                         <option value="ADMIN">Admin</option>
                     </select>
                 </div>
             </div>
 
-            <button class="registration-submit-btn" type="button">Submit</button>
+            <button class="registration-submit-btn" type="submit">Submit</button>
         </form>
     </div>
 </div>
+
