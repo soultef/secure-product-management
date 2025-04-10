@@ -16,7 +16,9 @@ header {
     width: 100%;
     z-index: 1000;
 }
-
+header a{
+    text-decoration: none;
+}
 /* Navigation Bar */
 .nav-bar {
     display: flex;
