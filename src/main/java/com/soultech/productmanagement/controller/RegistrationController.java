@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * - GET /api/registration: display registration form
  * - POST /api/register: handle registration submission
  *
- * Author: [Your Name]
+ * Author: Solomon Demisse
  */
 @Controller
 @RequestMapping("/api")
