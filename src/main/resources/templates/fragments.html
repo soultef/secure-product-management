@@ -1,12 +1,12 @@
 <!--This is header fragment used for navigation-->
-<header th:fragment="header-fragment">
+<header th:fragment="header-fragment" xmlns:sec="http://www.w3.org/1999/xhtml">
     <nav class="nav-bar">
 
-        <a href="/api/login">
-        <div class="logo">
-            <div class="spm-logo" style="color: red; font-size: 1.2em">s<span class="p-logo">P</span>m</div>
-            <div class="spm-text">Secure<br>Product Management</div>
-        </div>
+        <a href="/">
+            <div class="logo">
+                <div class="spm-logo" style="color: red; font-size: 1.2em">s<span class="p-logo">P</span>m</div>
+                <div class="spm-text">Secure<br>Product Management</div>
+            </div>
         </a>
 
         <form th:action="@{/products/search}" method="get" class="search-bar">
@@ -18,9 +18,20 @@
             <ul>
                 <li><a th:href="@{/products/add-a-product}">Add Item</a></li>
                 <li><a th:href="@{/products}">List of Items</a></li>
-                <li><a th:href="@{/api/registration}">Registration</a></li>
-            </ul>
 
+                <!-- Show Registration if NOT authenticated -->
+                <li sec:authorize="!isAuthenticated()">
+                    <a th:href="@{/api/registration}">Registration</a>
+                </li>
+
+                <!-- Show Logout if authenticated -->
+                <li sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post" style="display:inline;">
+                        <button type="submit">Logout</button>
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                    </form>
+                </li>
+            </ul>
         </div>
     </nav>
 </header>
