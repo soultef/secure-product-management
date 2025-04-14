@@ -43,8 +43,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         Users user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        System.out.println("User authorities: " + new SimpleGrantedAuthority("ROLE_" + user.getRole()));
-
         return new User(
                 user.getUsername(),
                 user.getPassword(),
