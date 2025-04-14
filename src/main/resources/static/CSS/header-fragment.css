@@ -107,7 +107,8 @@ header a{
 }
 
 /* Styling both <a> and <button> to look identical */
-.nav-a-tags a {
+.nav-a-tags a,
+.nav-a-tags button {
     text-decoration: none;
     color: #fff;
     padding: 10px 15px;
