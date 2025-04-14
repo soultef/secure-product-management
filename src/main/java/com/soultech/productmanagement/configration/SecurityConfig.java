@@ -51,9 +51,9 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/api/login", "/api/register", "/api/registration", "/CSS/**", "/js/**").permitAll()
-                        .requestMatchers("/products/add/").hasRole("admin")
-                        .requestMatchers("/products/edit/**").hasRole("admin")
-                        .requestMatchers("/products/delete/{id}").hasRole("admin")
+                        .requestMatchers("/products/add/").hasRole("ADMIN")
+                        .requestMatchers("/products/edit/**").hasRole("ADMIN")
+                        .requestMatchers("/products/delete/{id}").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
