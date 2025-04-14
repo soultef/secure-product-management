@@ -50,7 +50,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/login", "/api/register", "/login", "/CSS/**", "/js/**").permitAll()
+                        .requestMatchers("/api/login", "/api/register", "/api/registration", "/CSS/**", "/js/**").permitAll()
                         .requestMatchers("/products/add/").hasRole("admin")
                         .requestMatchers("/products/edit/**").hasRole("admin")
                         .requestMatchers("/products/delete/{id}").hasRole("admin")
