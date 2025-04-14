@@ -18,12 +18,11 @@ public class LoginController {
         return "home";
     }
 
-    @PostMapping("/form-submit")
+    @PostMapping("/login")
     public String loginForm(@ModelAttribute Users user)
     {
-        System.out.println(user.getUsername());
-        System.out.println(user.getPassword());
-        return "redirect:/api/login";
+
+        return "redirect:/api/home";
 
     }
 }

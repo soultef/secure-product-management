@@ -1,9 +1,9 @@
 package com.soultech.productmanagement.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+
+
 /**
  * Represents a user in the product management application.
  * A user has an ID, username, password, and role.
@@ -18,6 +18,9 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(unique = true, nullable = false)
+    @NotBlank(message = "Username is required")
     private String username;
     private String password;
     private String role;

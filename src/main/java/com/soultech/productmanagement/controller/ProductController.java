@@ -4,6 +4,7 @@ import com.soultech.productmanagement.model.Product;
 import com.soultech.productmanagement.services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -97,6 +98,7 @@ public class ProductController {
      * @return A redirect to the product list page.
      */
     @GetMapping("/update/{id}")
+    @PreAuthorize("hasRole('ADMIN')") //
     public ResponseEntity<String> updateProduct(@PathVariable Long id, @RequestBody Product product) {
         try {
             productService.updateProduct(id, product);
