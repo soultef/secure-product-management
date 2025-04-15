@@ -54,6 +54,7 @@ public class SecurityConfig {
                         .requestMatchers("/products/add/{id}").hasRole("ADMIN")
                         .requestMatchers("/products/edit/**").hasRole("ADMIN")
                         .requestMatchers("/products/delete/{id}").hasRole("ADMIN")
+                        .requestMatchers("/products/add-a-product").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
